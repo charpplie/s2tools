@@ -5,6 +5,7 @@
 
 #include <string>
 #include <vector>
+#include <filesystem>
 
 #include <steampp/steampp.h>
 
@@ -18,13 +19,29 @@
 #define MODS_VERIFIED_FRESH 2
 #define MODS_VERIFIED_OUTOFDATE 3
 
-//std::string DOTA_PATH = App::GetAppInstallDir(570);
-//std::string DOTA_MOD_PATH = std::format("{}\\game\\dota_russian\\", dotaPath);
-
 struct VpkInfo
 {
 	std::string name;
 	std::string hash;
+};
+
+struct DownloadResult
+{
+	enum class Code : uint8_t
+	{
+		Ok,
+		InvalidArgs,
+		FileOpenError,
+		NetworkError,
+		HttpError,
+		WriteError,
+		RenameError,
+		UnknownError
+	} code{ Code::UnknownError };
+
+	int httpStatus{ 0 };
+	std::string message;
+	std::size_t bytesDownloaded{ 0 };
 };
 
 class App
@@ -33,11 +50,10 @@ private:
 	static steampp::Steam steam;
 
 public:
-	static int Download(std::string host, std::string filename, std::string out);
+	static DownloadResult Download(const std::string& host, const std::string& filename, const std::filesystem::path& outPath, int maxRetries = 3);
 	static std::string GetSha256(const char* path);
 	static std::vector<VpkInfo> ReadHashes(const char* path);
 	static std::string GetAppInstallDir(uint32_t appId);
-	//static void ClonePack(std::string_view path);
 };
 
 #endif // _S2_APPFW_H__

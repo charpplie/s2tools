@@ -14,7 +14,6 @@
 
 #ifdef S2_GUI
 #include <d3d11.h>
-#include <d3d11.h>
 #include "../thirdparty/imgui/include/imgui.h"
 #include "../thirdparty/imgui/include/imgui_impl_dx11.h"
 #include "../thirdparty/imgui/include/imgui_impl_win32.h"

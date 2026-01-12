@@ -13,7 +13,7 @@
         "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
       },
       "environment": {
-        "VCPKG_ROOT": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\vcpkg"
+        "VCPKG_ROOT": "E:\\vcpkg"
       },
       "condition": {
         "type": "equals",

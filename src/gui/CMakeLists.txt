@@ -1,14 +1,28 @@
-set("NAME" s2tools_gui)
+set(NAME s2tools_gui)
 
-set("SOURCES"
+set(SOURCES
 	"main.cpp"
 	"Renderer.cpp"
 	"UI.cpp"
+	"TaskManager.cpp"
+	"AppearanceSettings.cpp"
+	"tabs/Mods.cpp"
+	"tabs/Randomizer.cpp"
+	"tabs/Changer.cpp"
+	"tabs/Tools.cpp"
+	"tabs/Settings.cpp"
 )
 
-set("HEADERS"
+set(HEADERS
 	"Renderer.h"
 	"UI.h"
+	"TaskManager.h"
+	"AppearanceSettings.h"
+	"tabs/Mods.h"
+	"tabs/Randomizer.h"
+	"tabs/Changer.h"
+	"tabs/Tools.h"
+	"tabs/Settings.h"
 )
 
 add_executable(${NAME}

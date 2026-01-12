@@ -3,18 +3,10 @@
 #ifndef _S2_DRAWING_H__
 #define _S2_DRAWING_H__
 
-#include <string_view>
+#include <string>
+
 #define S2_GUI
 #include "pch.h"
-
-#define EXIT_IMGUI(x, y) \
-	lastMsg = # x; \
-	ImGui::End(); \
-	goto y;
-
-#define EXIT_IMGUI_NOSTATUS(x) \
-	ImGui::End(); \
-	goto x;
 
 class UI
 {
@@ -23,8 +15,6 @@ private:
 	static ImVec2 vWindowSize;
 	static ImGuiWindowFlags WindowFlags;
 	static bool show_main_window;
-	static bool show_mods_window;
-	static bool show_debug_window;
 
 public:
 	static bool isActive();

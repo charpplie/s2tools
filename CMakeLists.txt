@@ -13,7 +13,6 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(sourcepp)
 
 find_package(OpenSSL REQUIRED)
-#find_package(CURL REQUIRED)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
@@ -29,7 +28,6 @@ target_link_libraries(common_deps INTERFACE
     sourcepp::steampp
     sourcepp::vpkpp
     OpenSSL::Crypto
-    #CURL::libcurl
 )
 
 add_subdirectory("src/appframework")
