@@ -28,6 +28,8 @@ set(HEADERS
 add_executable(${NAME}
 	${SOURCES}
 	${HEADERS}
+
+	${CMAKE_SOURCE_DIR}/res/res_gui.rc
 )
 
 set_target_properties(${NAME} PROPERTIES

@@ -78,6 +78,30 @@ namespace Tabs
 				ImGui::StyleColorsLight();
 		}
 
+		ImGui::Separator();
+		ImGui::Text("Progress bar rainbow:");
+
+		bool progressRainbow = AppearanceSettings::IsProgressRainbowEnabled();
+		if (ImGui::Checkbox("Animate progress rainbow", &progressRainbow))
+		{
+			AppearanceSettings::SetProgressRainbowEnabled(progressRainbow);
+		}
+
+		if (AppearanceSettings::IsProgressRainbowEnabled())
+		{
+			float progressSpeed = AppearanceSettings::GetProgressRgbSpeed();
+			if (ImGui::SliderFloat("Progress RGB speed", &progressSpeed, 0.01f, 2.0f, "%.2f"))
+			{
+				AppearanceSettings::SetProgressRgbSpeed(progressSpeed);
+			}
+
+			int progressSegmentWidth = AppearanceSettings::GetProgressSegmentWidth();
+			if (ImGui::SliderInt("Segment width (px)", &progressSegmentWidth, 1, 16))
+			{
+				AppearanceSettings::SetProgressSegmentWidth(progressSegmentWidth);
+			}
+		}
+
 		ImGui::Text("ImGui border color:");
 		ImGui::SameLine();
 		ImGui::TextDisabled("(applies to ImGuiCol_Border)");
@@ -113,7 +137,6 @@ namespace Tabs
 			if (ImGui::Checkbox("Flow color along border (perimeter)##BorderFlow", &borderFlow))
 			{
 				AppearanceSettings::SetBorderFlowing(borderFlow);
-				int a = 7;
 			}
 
 			if (AppearanceSettings::IsBorderFlowing())
@@ -136,28 +159,6 @@ namespace Tabs
 			ImGui::Unindent();
 		}
 
-		ImGui::Separator();
-		ImGui::Text("Progress bar rainbow:");
 		
-		bool progressRainbow = AppearanceSettings::IsProgressRainbowEnabled();
-		if (ImGui::Checkbox("Animate progress rainbow", &progressRainbow))
-		{
-			AppearanceSettings::SetProgressRainbowEnabled(progressRainbow);
-		}
-
-		if (AppearanceSettings::IsProgressRainbowEnabled())
-		{
-			float progressSpeed = AppearanceSettings::GetProgressRgbSpeed();
-			if (ImGui::SliderFloat("Progress RGB speed", &progressSpeed, 0.01f, 2.0f, "%.2f"))
-			{
-				AppearanceSettings::SetProgressRgbSpeed(progressSpeed);
-			}
-
-			int progressSegmentWidth = AppearanceSettings::GetProgressSegmentWidth();
-			if (ImGui::SliderInt("Segment width (px)", &progressSegmentWidth, 1, 16))
-			{
-				AppearanceSettings::SetProgressSegmentWidth(progressSegmentWidth);
-			}
-		}
 	}
 }

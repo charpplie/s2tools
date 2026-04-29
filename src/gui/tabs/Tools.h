@@ -6,5 +6,9 @@ namespace Tabs
 	{
 	public:
 		static void Draw();
+
+	private:
+		static void DrawPythonHelpers();
+		static void DrawMDLHelpers();
 	};
 }

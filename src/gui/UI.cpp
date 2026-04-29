@@ -101,7 +101,7 @@ void UI::Draw()
 
 		ImGui::End();
 
-		AppearanceSettings::DrawFlowingBorder(windowPos, windowSize);
+		AppearanceSettings::DrawFlowingBorder(ImVec2(0,0), ImVec2(100, 100));
 
 		ImGui::PopStyleColor(2);
 	}
